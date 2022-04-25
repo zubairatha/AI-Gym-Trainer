@@ -1,7 +1,8 @@
-from turtle import right
 import cv2
 import mediapipe as mp
 import numpy as np
+from gtts import gTTS
+from playsound import  playsound
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
@@ -161,6 +162,11 @@ def curl():
                 if angle < 30 and stage =='down':
                     stage="up"
                     counter +=1
+                    mytext=str(counter)
+                    language='en'
+                    myobj=gTTS(text=mytext,lang=language,slow=True)
+                    myobj.save("welcome1.mp3")
+                    playsound("welcome1.mp3")
                     print(counter)
                         
             except:
@@ -277,6 +283,11 @@ def deadlift():
                 if stage=="down" and checkDeadlift(left_hand,right_hand,left_knee,right_knee,checkUp=True):
                     stage="up"
                     counter+=1
+                    mytext=str(counter)
+                    language='en'
+                    myobj=gTTS(text=mytext,lang=language,slow=True)
+                    myobj.save("welcome1.mp3")
+                    playsound("welcome1.mp3")
                     print(counter)
                         
             except:
@@ -389,6 +400,11 @@ def squat():
                 if stage=="down" and checkSquat(left_hip,right_hip,left_knee,right_knee,checkUp=True):
                     stage="up"
                     counter+=1
+                    mytext=str(counter)
+                    language='en'
+                    myobj=gTTS(text=mytext,lang=language,slow=True)
+                    myobj.save("welcome1.mp3")
+                    playsound("welcome1.mp3")
                     print(counter)
                         
             except:
@@ -413,7 +429,12 @@ def squat():
             cv2.putText(image, stage, 
                         (80,60), 
                         cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
-
+            # cv2.putText(image, 'SQUAT', 
+            #             (470,60), 
+            #             cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
+            
+            
+            # Render detections
             mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
                                     mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
@@ -428,5 +449,3 @@ def squat():
         cv2.destroyAllWindows()
 
 createMenu()
-
-
