@@ -165,8 +165,10 @@ def curl():
                     mytext=str(counter)
                     language='en'
                     myobj=gTTS(text=mytext,lang=language,slow=True)
-                    myobj.save("welcome1.mp3")
-                    playsound("welcome1.mp3")
+                    # myobj.save("welcome1.mp3")
+                    # playsound("welcome1.mp3")
+                    myobj.save("welcome"+str(counter)+".mp3")
+                    playsound("welcome"+str(counter)+".mp3")
                     print(counter)
                         
             except:
@@ -286,8 +288,8 @@ def deadlift():
                     mytext=str(counter)
                     language='en'
                     myobj=gTTS(text=mytext,lang=language,slow=True)
-                    myobj.save("welcome1.mp3")
-                    playsound("welcome1.mp3")
+                    myobj.save("welcome"+str(counter)+".mp3")
+                    playsound("welcome"+str(counter)+".mp3")
                     print(counter)
                         
             except:
@@ -403,8 +405,8 @@ def squat():
                     mytext=str(counter)
                     language='en'
                     myobj=gTTS(text=mytext,lang=language,slow=True)
-                    myobj.save("welcome1.mp3")
-                    playsound("welcome1.mp3")
+                    myobj.save("welcome"+str(counter)+".mp3")
+                    playsound("welcome"+str(counter)+".mp3")
                     print(counter)
                         
             except:
@@ -449,3 +451,4 @@ def squat():
         cv2.destroyAllWindows()
 
 createMenu()
+
