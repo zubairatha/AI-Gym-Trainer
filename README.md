@@ -11,6 +11,7 @@ Python - OpenCV and Mediapipe
 
 ## Mediapipe
 Mediapipe segments the subject to 33 3D landmarks. These landmarks are tracked and it also uses z-index analysis to measure depth as in to indicate whether user's hands are behind their hips or not.
+![mediapipe-png](/mediapipe.png)
 
 ## Excercises
 ### Bicep Curl
